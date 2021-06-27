@@ -3,7 +3,6 @@ import time
 
 from selenium import webdriver
 from selenium.webdriver.common.alert import Alert
-from selenium.webdriver.support.select import Select
 
 link = "http://SunInJuly.github.io/execute_script.html"
 
