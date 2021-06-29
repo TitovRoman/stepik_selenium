@@ -2,20 +2,20 @@ from numbers import Number
 from operator import attrgetter
 
 from .base_page import BasePage
-from .locators import BasketLocators
+from .locators import BasketPageLocators
 from ..utilities.price_utilities import get_float_price_from_str
 
 
 class BasketPage(BasePage):
     def get_total_price(self) -> Number:
         price_str = self.browser.find_element(
-            *BasketLocators.TOTAL_PRICE
+            *BasketPageLocators.TOTAL_PRICE
         ).text
         return get_float_price_from_str(price_str)
 
     def get_products_name(self) -> list[str]:
         products_list = self.browser.find_elements(
-            *BasketLocators.PRODUCT_NAME
+            *BasketPageLocators.PRODUCT_NAME
         )
         return list(map(attrgetter('text'), products_list))
 

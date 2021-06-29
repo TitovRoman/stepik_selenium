@@ -34,7 +34,5 @@ def browser(request):
     user_language = request.config.getoption("language")
     browser = run_browser(browser_name, user_language)
     yield browser
-
     print("\nquit browser..")
     browser.quit()
-
