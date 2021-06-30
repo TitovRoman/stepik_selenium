@@ -26,3 +26,11 @@ class BasketPage(BasePage):
     def should_be_equal_price(self, price: Number) -> None:
         assert self.get_total_price() == price, \
             'The price in the basket does not match'
+
+    def should_be_empty(self) -> None:
+        assert self.is_not_element_present(
+            *BasketPageLocators.PRODUCT_NAME
+        ), "There are items in the basket"
+        assert self.is_element_present(
+            *BasketPageLocators.MESSAGE_IN_EMPTY_BASKET
+        ), "Empty basket message not found"
